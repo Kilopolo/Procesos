@@ -55,7 +55,7 @@ public class MiApplet extends Applet implements Runnable {
 			//variar los parametros de la animación
 			//repaint();
 			//Thread.sleep(100);  	cada frame va a durar 100ms
-		
+		//dfedfgdfgh
 		
 		
 		//}
