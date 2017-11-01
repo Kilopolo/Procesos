@@ -67,6 +67,7 @@ public class MiApplet extends Applet implements Runnable {
 	}
 
 	public void run() {
+<<<<<<< HEAD
 		/**
 		 * Scanner teclado=new Scanner(System.in); System.out.println("pulse play: p");
 		 * String play=teclado.next();
@@ -88,5 +89,19 @@ public class MiApplet extends Applet implements Runnable {
 			}
 		}
 
+=======
+		
+		
+		//bucle que nos mete todo dentro
+		//while() {
+			//variar los parametros de la animación
+			//repaint();
+			//Thread.sleep(100);  	cada frame va a durar 100ms
+		//dfedfgdfgh
+		
+		
+		//}
+		
+>>>>>>> c828dccd0d1979d776531f471dd2d0b509ba78ef
 	}
 }
