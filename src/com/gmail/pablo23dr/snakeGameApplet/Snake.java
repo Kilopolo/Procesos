@@ -14,6 +14,12 @@ public class Snake {
 	final int startSize = 20, startX = 180, startY = 180;
 	
 	
+	public boolean isElongate() {
+		return elongate;
+	}
+	public void setElongate(boolean elongate) {
+		this.elongate = elongate;
+	}
 	public Snake() {
 		// TODO Auto-generated constructor stub
 		snakePoints = new ArrayList<Point>();
@@ -70,6 +76,10 @@ public class Snake {
 				snakePoints.set(i, snakePoints.get(i -1));
 			}
 			snakePoints.set(0, newStart);
+			if (elongate) {
+				snakePoints.add(last);
+				elongate=false;
+			}
 		}
 	}
 	public boolean isMoving() {
@@ -83,14 +93,12 @@ public class Snake {
 		int x = this.getX();
 		int y = this.getY();
 		
-		for (int i = 1; i < snakePoints.size(); i++) {
+		for (int i = 4; i < snakePoints.size(); i++) {
 			if (snakePoints.get(i).getX() == x 
-				&& snakePoints.get(i).getY() == y) {
+				&& snakePoints.get(i).getY() == y) 
 				return true;
-			}
-			
-		}return false;
-		
+		}
+		return false;
 		
 	}
 }
