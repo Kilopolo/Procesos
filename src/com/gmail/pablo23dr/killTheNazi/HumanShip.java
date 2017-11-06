@@ -5,20 +5,48 @@ import java.awt.Graphics;
 
 public class HumanShip {
 
-	double x, dirX;
+	double x, velX;
 	boolean leftAccel, rightAccel;
 	int y, proportion;
-	final double GRAVITY = 0.94;
+	final double GRAVITY = 0.40;
 
 	public HumanShip() {
 
-		x = 40;
-		y = 40;
+		leftAccel= false;
+		rightAccel = false;
+		
+		x = 300;
+		y = 590;
 		proportion = 4;
+		
+		velX=0;
+		
+		
 	}
 
 	public void move() {
-
+		if (leftAccel) {
+			velX -=2;
+		}else if (rightAccel) {
+			velX +=2;
+		}else if (!leftAccel && !rightAccel) {
+			velX*=GRAVITY;
+		}
+		
+		if (velX>=20) {
+			velX=20;
+		}else if (velX<=-20) {
+			velX=-20;
+		}
+		
+		x += velX;
+		
+		if (x<-40) {
+			x=600;
+		}else if(x>600) {
+			x=-40;
+		}
+		
 	}
 
 
@@ -47,10 +75,21 @@ public class HumanShip {
 		int xCabinaPoints[] = { 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 2 };
 		int yCabinaPoints[] = { 0, 2, 2, 4, 4, 6, 6, 4, 4, 2, 2, 0, 0 };
 		int nCabinaPoints = 13;
+		int yCabinaProPoints[]= new int [nCabinaPoints];
+		int xCabinaProPoints[]= new int [nCabinaPoints];
+		
+		for (int i = 0; i < yCabinaPoints.length; i++) {
+			xCabinaProPoints[i]=(int) (getX()+(xCabinaPoints[i]*getProportion()));
+			yCabinaProPoints[i]=(int) (getY()+(yCabinaPoints[i]*getProportion())*-1);
+		}
+		
+		g.setColor(Color.CYAN);
+		g.fillPolygon(xCabinaProPoints, yCabinaProPoints, nCabinaPoints);
 		g.setColor(Color.RED);
 		g.fillPolygon(xAlasProPoints, yAlasProPoints, nAlasPoints);
-		g.setColor(Color.CYAN);
-		g.fillPolygon(xCabinaPoints, yCabinaPoints, nCabinaPoints);
+		g.setColor(Color.YELLOW);
+		g.fillRect((int)getX()+(getProportion()*4), getY()-getProportion(), getProportion(), getProportion());
+		//g.fillOval((int)getX()+(getProportion()*4), getY()-getProportion()+5, getProportion()+4, getProportion()*4);
 
 	}
 	public int getProportion() {
@@ -69,11 +108,11 @@ public class HumanShip {
 	}
 
 	public double getDirX() {
-		return dirX;
+		return velX;
 	}
 
 	public void setDirX(double dirX) {
-		this.dirX = dirX;
+		this.velX = dirX;
 	}
 
 	public boolean isLeftAccel() {
