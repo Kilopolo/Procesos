@@ -31,10 +31,11 @@ public class MiApplet extends Applet implements Runnable {
 	boolean running = true;
 
 	public static void main(String[] args) {
-		
+
 		MiApplet m = new MiApplet();
 		m.thread.start();
 	}
+
 	/**
 	 * public void setImage(String img) { setImage(new ImageIcon(img).getImage()); }
 	 */
@@ -67,7 +68,7 @@ public class MiApplet extends Applet implements Runnable {
 	}
 
 	public void run() {
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		/**
 		 * Scanner teclado=new Scanner(System.in); System.out.println("pulse play: p");
 		 * String play=teclado.next();
@@ -86,22 +87,18 @@ public class MiApplet extends Applet implements Runnable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				System.out.println("Error has occured");
-			}
+			}}
 		}
 
-=======
-		
-		
-		//bucle que nos mete todo dentro
-		//while() {
-			//variar los parametros de la animación
-			//repaint();
-			//Thread.sleep(100);  	cada frame va a durar 100ms
-		//dfedfgdfgh
-		
-		
-		//}
-		
->>>>>>> c828dccd0d1979d776531f471dd2d0b509ba78ef
-	}
+	=======
+
+	// bucle que nos mete todo dentro
+	// while() {
+	// variar los parametros de la animación
+	// repaint();
+	// Thread.sleep(100); cada frame va a durar 100ms
+	// dfedfgdfgh
+
+	// }
+
 }
