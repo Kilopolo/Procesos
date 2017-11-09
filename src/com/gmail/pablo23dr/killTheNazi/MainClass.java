@@ -24,7 +24,7 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 		this.addKeyListener(this);
 		GameOver = false;
 		humanShip = new HumanShip();
-		
+		enemyShip = new EnemyShip();
 		
 		thread = new Thread(this);
 		thread.start();
@@ -35,7 +35,7 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 		gfx.setColor(Color.BLACK);
 		gfx.fillRect(0, 0, 600, 600);
 		humanShip.draw(gfx);
-		
+		enemyShip.draw2(gfx);
 		
 		g.drawImage(img, 0, 0, null);
 	}
@@ -47,9 +47,11 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 	public void run() {
 		for(;;) {
 			
+			humanShip.move();
+			enemyShip.move();
 			
 			
-			
+			repaint();
 			
 			try {
 				Thread.sleep(50);
@@ -72,10 +74,10 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 	public void keyPressed(KeyEvent e) {
 		
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			
+			humanShip.setRightAccel(true);
 		}
 		if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-			
+			humanShip.setLeftAccel(true);
 		}
 		
 		
@@ -85,10 +87,10 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 	public void keyReleased(KeyEvent e) {
 		
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			
+			humanShip.setRightAccel(false);
 		}
 		if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-			
+			humanShip.setLeftAccel(false);
 		}
 		
 	}
