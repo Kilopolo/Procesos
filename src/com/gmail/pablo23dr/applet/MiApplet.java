@@ -7,12 +7,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.nio.file.Path;
-import java.util.Random;
-import java.util.Scanner;
 
-import javax.swing.ImageIcon;
 
 /**
  * vamos a necesitar: (x,y) ---> coordenadas del centro de la bola
@@ -39,8 +34,7 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 	Graphics gfx1, gfx2;
 	Image img;
 	private BufferedImage buffer;
-
-<<<<<<< HEAD
+	Player p;
 	public static void main(String[] args) {
 
 		MiApplet m = new MiApplet();
@@ -50,14 +44,11 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 	/**
 	 * public void setImage(String img) { setImage(new ImageIcon(img).getImage()); }
 	 */
-	@Override
-	public void init() {
+	
+	public void init1() {
 		setSize(400, 400);
 		p = new Player();
 	}
-=======
-	// public void setImage(String img) { setImage(new ImageIcon(img).getImage()); }
->>>>>>> 3aec2a9ca5454c107542dd84c65fc90a3ab2ce82
 
 	@Override
 	public void init() {
@@ -112,12 +103,10 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 	}
 
 	public void run() {
-<<<<<<< HEAD
-//<<<<<<< HEAD
-=======
+
 
 		long t0 = System.nanoTime(), t1, lapso;
->>>>>>> 3aec2a9ca5454c107542dd84c65fc90a3ab2ce82
+
 		/**
 		 * Scanner teclado=new Scanner(System.in); System.out.println("pulse play: p");
 		 * String play=teclado.next();
@@ -125,7 +114,7 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 
 		// bucle que nos mete todo dentro
 		// while(play.equals("p")) {
-<<<<<<< HEAD
+
 		while (running) {
 			// variar los parametros de la animación
 			System.out.println("asdasd");
@@ -137,10 +126,9 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				System.out.println("Error has occured");
-			}}
+			}
 		}
 
-	=======
 
 	// bucle que nos mete todo dentro
 	// while() {
@@ -151,8 +139,7 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 
 	// }
 
-=======
-		
+
 			while (running) {
 				// guardo el lapso de tiempo entre ambos puntos de el frame.
 				lapso = (t1 = System.nanoTime()) - t0;
@@ -219,5 +206,5 @@ public class MiApplet extends Applet implements Runnable, KeyListener {
 		// TODO Auto-generated method stub
 
 	}
->>>>>>> 3aec2a9ca5454c107542dd84c65fc90a3ab2ce82
+
 }
