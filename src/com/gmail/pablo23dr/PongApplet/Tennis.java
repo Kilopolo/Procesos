@@ -10,8 +10,9 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 	final int WITDH = 700, HEIGHT = 500;
 	Thread thread;
 	HumanPaddle p1;
+	HumanPaddle p2;
 	Ball b1;
-	AIPaddle p2;
+//	AIPaddle p2;
 	boolean gameStarted;
 //	Graphics gfx;
 //	Image img;
@@ -22,16 +23,20 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 		gameStarted=false;
 		this.addKeyListener(this);
 		p1= new HumanPaddle(1);
+		p2= new HumanPaddle(2);
 		b1=new Ball();
-		p2= new AIPaddle(2, b1);
+//		p2= new AIPaddle(2, b1);
 		
 //		img = createImage(WIDTH, HEIGHT);
 //		gfx = img.getGraphics();
-		
-		thread = new Thread(this);
-		thread.start();
-	}
+		start();
 
+	}
+@Override
+public void start() {
+	thread = new Thread(this);
+	thread.start();
+}
 
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -88,8 +93,16 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 			p1.setUpAccel(true);
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			p1.setDownAccel(true);
+			
 		} else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			gameStarted=true;
+		}
+		
+		
+		if (e.getKeyCode() == KeyEvent.VK_W) {
+			p2.setUpAccel(true);
+		} else if (e.getKeyCode() == KeyEvent.VK_S) {
+			p2.setDownAccel(true);
 		}
 	}
 
@@ -99,6 +112,13 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 			p1.setUpAccel(false);
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			p1.setDownAccel(false);
+		}
+		
+		
+		if (e.getKeyCode() == KeyEvent.VK_W) {
+			p2.setUpAccel(false);
+		} else if (e.getKeyCode() == KeyEvent.VK_S) {
+			p2.setDownAccel(false);
 		}
 	}
 
