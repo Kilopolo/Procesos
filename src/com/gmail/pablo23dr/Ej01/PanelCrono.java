@@ -6,9 +6,7 @@ import javax.swing.JPanel;
 
 public class PanelCrono extends JPanel implements Runnable{
 
-	private int horas = 0;
-	private int minutos = 0;
-	private int segundos = 0;
+	
 	private Thread t = null;
 	private boolean finalizado = false;
 	
@@ -48,12 +46,7 @@ public class PanelCrono extends JPanel implements Runnable{
 			
 			
 			
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 		}
 		
 		
