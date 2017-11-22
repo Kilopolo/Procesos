@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 public class UI extends JFrame implements ActionListener{
 
 	private JButton b1, b2;
-	
+	private PanelCrono pi ;
 	/**
 	 * @param args
 	 */
@@ -51,7 +51,7 @@ public class UI extends JFrame implements ActionListener{
 		b2.addActionListener(this);
 		ps.add(b2);
 		
-		PanelCrono pi = new PanelCrono();
+		pi = new PanelCrono();
 		pi.setPreferredSize(new Dimension(200, 200));
 		add(pi, BorderLayout.SOUTH);
 		pack();
@@ -63,6 +63,18 @@ public class UI extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getActionCommand().equals("B1")) {
+			
+			JButton b = (JButton) e.getSource();
+			if(b.getText().equals("Iniciar")) {
+				b.setText("Pausa");
+				pi.iniciarCrono();
+			} else if (b.getText().equals("Pausa")) {
+				b.setText("Reanudar");
+				pi.pausarCrono();
+			} else if (b.getText().equals("Reanudar")) {
+				b.setText("Pausa");
+				pi.pausarCrono();
+			}
 			
 		} else if(e.getActionCommand().equals("B2")) {
 			
