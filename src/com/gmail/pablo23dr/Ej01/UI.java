@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.gmail.pablo23dr.ej01;
+package com.gmail.pablo23dr.Ej01;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -52,7 +52,7 @@ public class UI extends JFrame implements ActionListener{
 		ps.add(b2);
 		
 		pi = new PanelCrono();
-		pi.setPreferredSize(new Dimension(200, 200));
+		pi.setPreferredSize(new Dimension(300, 200));
 		add(pi, BorderLayout.SOUTH);
 		pack();
 		
@@ -61,7 +61,7 @@ public class UI extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+
 		if(e.getActionCommand().equals("B1")) {
 			
 			JButton b = (JButton) e.getSource();
@@ -73,11 +73,19 @@ public class UI extends JFrame implements ActionListener{
 				pi.pausarCrono();
 			} else if (b.getText().equals("Reanudar")) {
 				b.setText("Pausa");
-				pi.pausarCrono();
+				pi.reanudarCrono();
 			}
 			
 		} else if(e.getActionCommand().equals("B2")) {
-			
+			JButton b = (JButton) e.getSource();
+			if(b.getText().equals("Detener")) {
+				b.setText("Reiniciar");
+				b1.setText("Reanudar");
+				pi.detenerCrono();
+			} else if (b.getText().equals("Reiniciar")) {
+				b.setText("Detener");
+				pi.resetearCrono();
+			}
 		}
 		
 		

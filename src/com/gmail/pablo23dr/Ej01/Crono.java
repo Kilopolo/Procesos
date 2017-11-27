@@ -1,4 +1,4 @@
-package com.gmail.pablo23dr.ej01;
+package com.gmail.pablo23dr.Ej01;
 
 public class Crono {
 
