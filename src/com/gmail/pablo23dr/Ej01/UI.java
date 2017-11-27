@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.gmail.pablo23dr.Ej01;
+package com.gmail.pablo23dr.ej01;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
