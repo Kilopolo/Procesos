@@ -24,7 +24,7 @@ import java.awt.image.BufferedImage;
 public class MiApplet extends Applet implements Runnable, KeyListener {
 
 	// private String pelotaPath =
-	// "D:\\Users\\Pablo\\Documents\\GitHub\\Procesos\\src\\com\\gmail\\pablo23dr\\applet\\Pelota-de-tenis.png";
+	// "D:\\Users\\Pablo\\Documents\\GitHub\\Procesos\\src\\com\\gmail\\pablo23dr\\applet\\Ball-de-tenis.png";
 	Thread thread = new Thread();
 	// private Image img;
 

@@ -26,7 +26,6 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 		p2= new HumanPaddle(2);
 		b1=new Ball();
 //		p2= new AIPaddle(2, b1);
-		
 //		img = createImage(WIDTH, HEIGHT);
 //		gfx = img.getGraphics();
 		start();
