@@ -9,11 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class PanelPrincipal extends JFrame implements Runnable, KeyListener {
+public class PanelPrincipal extends JFrame implements Runnable {
 
 	private final int HEIGHT = 600;
 	private final int WIDTH = (HEIGHT * 16) / 9;
@@ -21,6 +22,7 @@ public class PanelPrincipal extends JFrame implements Runnable, KeyListener {
 	private boolean running = false;
 	private Graphics gfx;
 	private Image img;
+	private Ball ball;
 	
 	public static void main(String[] args) {
 		new PanelPrincipal();
@@ -45,7 +47,7 @@ public class PanelPrincipal extends JFrame implements Runnable, KeyListener {
 		add(grafica);
 		
 		//OTROS
-		this.addKeyListener(this);
+		this.addKeyListener(new KeyInput());
 		img = createImage(WIDTH, HEIGHT);
 		gfx = img.getGraphics();
 		start();
@@ -57,16 +59,32 @@ public class PanelPrincipal extends JFrame implements Runnable, KeyListener {
 		
 	}
 	
-	public void movimiento() {
+	public void move() {
 		
 		
 		
 	}
 	
-	public void pintar(Graphics g) {
+	public void render() {
+		BufferStrategy bs = this.getBufferStrategy();
+		if (bs == null) {
+			this.createBufferStrategy(3);
+			return;
+		}
+
+		Graphics gfx = bs.getDrawGraphics();
+
+		gfx.setColor(Color.black);
+		gfx.fillRect(0, 0, WIDTH, HEIGHT);
+		// ----------------------------------------------
+		
+	
 		
 		
-		
+		// ----------------------------------------------
+		gfx.dispose();
+		bs.show();
+
 	}
 
 	@Override
@@ -82,11 +100,11 @@ public class PanelPrincipal extends JFrame implements Runnable, KeyListener {
 			delta += (now - lastTime) / ns;
 			lastTime = now;
 			while (delta >= 1) {
-				movimiento();
+				move();
 				delta--;
 			}
 			if (running) {
-				pintar();
+				render();
 			}
 			frames++;
 
@@ -100,18 +118,5 @@ public class PanelPrincipal extends JFrame implements Runnable, KeyListener {
 
 	}
 
-	@Override
-	public void keyPressed(KeyEvent e) {
-
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-	}
-
+	
 }
